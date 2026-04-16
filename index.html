@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Stream - Indonesia </title>
+
+<link rel="stylesheet" href="tgoal.css">
+
+<body>
+
+<div class="stream-container">
+  <div class="overlay" id="block-top"></div>
+  <div class="overlay" id="block-bottom"></div>
+  <div class="overlay" id="block-left"></div>
+  <div class="overlay" id="block-right"></div>
+
+  <iframe
+    id="stream"
+    src="https://idn267.marza12.shop/football/2973723-indonesia-u17-vs-malaysia-u17.html"
+    allow="autoplay; fullscreen; encrypted-media"
+    allowfullscreen
+    scrolling="no"
+  ></iframe>
+</div>
+
+<!-- <button id="toggle-btn" onclick="document.getElementById('controls').classList.toggle('show')">⚙ Debug</button> -->
+
+<div id="controls">
+  <b style="color:#fff; font-size:13px;">Crop & Overlay</b>
+  <div class="sep"></div>
+  <div class="row"><span class="lbl">Geser Atas</span> <input type="number" id="i-top" value="-250" step="5" oninput="go()"></div>
+  <div class="row"><span class="lbl">Geser Kiri</span> <input type="number" id="i-left" value="0" step="5" oninput="go()"></div>
+  
+  <div class="sep"></div>
+  <div style="color:#666; font-size:11px;">Overlay pemblokir</div>
+  <div class="row"><span class="lbl">Blok Atas</span>    <input type="number" id="i-bt" value="0" step="5" oninput="go()"></div>
+  <div class="row"><span class="lbl">Blok Bawah</span>   <input type="number" id="i-bb" value="0" step="5" oninput="go()"></div>
+  <div class="row"><span class="lbl">Blok Kiri</span>    <input type="number" id="i-bl" value="0" step="5" oninput="go()"></div>
+  <div class="row"><span class="lbl">Blok Kanan</span>   <input type="number" id="i-br" value="0" step="5" oninput="go()"></div>
+  
+  <div class="sep"></div>
+  <button id="copy-btn" onclick="copyIt()">Salin nilai saat ini</button>
+  <div id="copy-out"></div>
+</div>
+
+<script src="tgoal.js"></script>
+
+</body>
+</html>
