@@ -4,75 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Live Stream - Indonesia vs Bulgaria</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 100%; height: 100%; background: #000; overflow: hidden; }
-  
-  .stream-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #000;
-  }
+<title>Live Stream - Indonesia </title>
 
-  iframe#stream {
-    position: absolute;
-    border: none;
-    top: -250px;     /* sembunyikan header biru + logo LIVE SPORTS */
-    left: 0;
-    width: 100%;
-    height: calc(100% + 320px);   /* sedikit ditambah agar video tetap pas */
-  }
+<link rel="stylesheet" href="tgoal.css">
 
-  .overlay { 
-    position: absolute; 
-    background: #000; 
-    z-index: 10; 
-    pointer-events: all; 
-  }
-
-  #block-top    { top: 0; left: 0; right: 0; height: 0px; }   /* header */
-  #block-bottom { bottom: 0; left: 0; right: 0; height: 140px; } /* chat + kontrol bawah */
-  #block-left   { top: 0; left: 0; bottom: 0; width: 0px; }
-  #block-right  { top: 0; right: 0; bottom: 0; width: 0px; }
-
-  /* Debug panel */
-  #toggle-btn {
-    position: fixed; top: 8px; right: 8px;
-    background: rgba(0,0,0,0.75); color: #fff;
-    border: 1px solid #555; padding: 5px 10px;
-    border-radius: 6px; font-size: 11px; cursor: pointer;
-    z-index: 9999; font-family: monospace;
-  }
-
-  #controls {
-    position: fixed; top: 36px; right: 8px;
-    background: rgba(12,12,12,0.93); color: #eee;
-    padding: 12px 14px; border-radius: 10px;
-    font-family: monospace; font-size: 12px;
-    z-index: 9998; display: none; flex-direction: column;
-    gap: 7px; min-width: 240px; border: 1px solid #333;
-  }
-  #controls.show { display: flex; }
-  #controls .row { display: flex; justify-content: space-between; align-items: center; }
-  #controls .lbl { color: #999; }
-  #controls input {
-    width: 72px; background: #1a1a1a; color: #fff;
-    border: 1px solid #444; padding: 3px 6px;
-    border-radius: 4px; font-family: monospace;
-    font-size: 12px; text-align: right;
-  }
-  #controls .sep { border-top: 1px solid #2a2a2a; margin: 8px 0; }
-  #copy-btn {
-    padding: 6px 10px; background: #222; color: #9ef;
-    border: 1px solid #444; border-radius: 4px;
-    cursor: pointer; font-size: 11px;
-  }
-  #copy-out { font-size: 10px; color: #6d6; line-height: 1.5; word-break: break-all; margin-top: 6px; }
-</style>
-<script type="text/javascript" nonce="55e9bcf336984973ae4b2a8a57e" src="//local.adguard.org?ts=1776342905284&amp;type=content-script&amp;dmn=tgoal.pages.dev&amp;url=https%3A%2F%2Ftgoal.pages.dev%2F&amp;app=mark.via.gp&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-dnt"></script><script type="text/javascript" nonce="55e9bcf336984973ae4b2a8a57e" src="//local.adguard.org?ts=1776342905284&amp;name=AdGuard%20Extra&amp;type=user-script"></script></head>
 <body>
 
 <div class="stream-container">
@@ -110,38 +45,7 @@
   <div id="copy-out"></div>
 </div>
 
-<script>
-const fr = document.getElementById('stream');
-const bt = document.getElementById('block-top');
-const bb = document.getElementById('block-bottom');
-const bl = document.getElementById('block-left');
-const br = document.getElementById('block-right');
+<script src="tgoal.js"></script>
 
-const v = id => parseInt(document.getElementById(id).value) || 0;
-
-function go() {
-  const top  = v('i-top');
-  const left = v('i-left');
-
-  fr.style.top    = top + 'px';
-  fr.style.left   = left + 'px';
-  fr.style.height = 'calc(100% + ' + (Math.abs(top) + 70) + 'px)';   // disesuaikan
-  fr.style.width  = 'calc(100% + ' + Math.abs(left) + 'px)';
-
-  bt.style.height = v('i-bt') + 'px';
-  bb.style.height = v('i-bb') + 'px';
-  bl.style.width  = v('i-bl') + 'px';
-  br.style.width  = v('i-br') + 'px';
-}
-
-function copyIt() {
-  const s = `top:${v('i-top')}px | left:${v('i-left')}px | blok: atas=${v('i-bt')} bawah=${v('i-bb')} kiri=${v('i-bl')} kanan=${v('i-br')}`;
-  document.getElementById('copy-out').textContent = s;
-  navigator.clipboard.writeText(s).catch(()=>{});
-}
-
-// Inisialisasi
-go();
-</script>
 </body>
 </html>
