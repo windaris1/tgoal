@@ -12,10 +12,10 @@
   iframe#stream {
     position: absolute;
     border: none;
-    top: -70px;     /* sembunyikan header biru + logo LIVE SPORTS */
+    top: -10px;     /* sembunyikan header biru + logo LIVE SPORTS */
     left: 0;
     width: 100%;
-    height: calc(100% + 320px);   /* sedikit ditambah agar video tetap pas */
+    height: calc(100% + 220px);   /* sedikit ditambah agar video tetap pas */
   }
 
   .overlay { 
