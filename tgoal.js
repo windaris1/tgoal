@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const iframe = document.getElementById('stream');
+  const params = new URLSearchParams(window.location.search);
+  const scrParam = params.get('scr');
+  
+  if (scrParam) {
+    iframe.src = decodeURIComponent(scrParam);
+  } else {
+    // Default kalo ?scr= kosong
+    iframe.src = 'https://sibaltv.pages.dev/sibco.jpg';
+  }
+});
+
 const fr = document.getElementById('stream');
 const bt = document.getElementById('block-top');
 const bb = document.getElementById('block-bottom');
